@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANGEL_TERAN - Ethical Hacker Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Canvas para animación Matrix -->
+    <canvas id="matrixCanvas"></canvas>
+    
+    <!-- Header dinámico -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo" id="typingText">ANGEL_TERAN</h1>
+            <nav class="nav">
+                <a href="#services" class="nav-link">Servicios</a>
+                <a href="#about" class="nav-link">Acerca</a>
+                <a href="#contact" class="nav-link">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2 class="hero-title">ETHICAL HACKER & CYBERSECURITY EXPERT</h2>
+            <p class="hero-subtitle">Penetration Testing • Malware Analysis • Incident Response</p>
+            <button class="cta-button" onclick="scrollToServices()">EXPLORAR SERVICIOS</button>
+        </div>
+    </section>
+
+    <!-- Carousel de Servicios -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">SERVICIOS ESPECIALIZADOS</h2>
+            <div class="simple-carousel" id="simpleCarousel">
+                <div class="service-card" id="carouselCard">
+                    <!-- El contenido se llenará por JS -->
+                </div>
+                <div class="carousel-controls">
+                    <button id="carouselPrev">&#8592;</button>
+                    <span id="carouselIndicator"></span>
+                    <button id="carouselNext">&#8594;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarjetas de Servicios Detalladas -->
+    <section class="detailed-services">
+        <div class="container">
+            <h2 class="section-title">SERVICIOS DETALLADOS</h2>
+            <div class="services-grid">
+                <div class="service-card-detailed" onclick="openModal('penetration')">
+                    <div class="card-header">
+                        <div class="service-icon-large">🔒</div>
+                        <h3>Penetration Testing</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Evaluación completa de seguridad de sistemas, aplicaciones web y redes</p>
+                        <div class="price">Desde $2,000</div>
+                    </div>
+                </div>
+
+                <div class="service-card-detailed" onclick="openModal('malware')">
+                    <div class="card-header">
+                        <div class="service-icon-large">🦠</div>
+                        <h3>Malware Analysis</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Análisis detallado de malware, reverse engineering y detección</p>
+                        <div class="price">Desde $1,500</div>
+                    </div>
+                </div>
+
+                <div class="service-card-detailed" onclick="openModal('incident')">
+                    <div class="card-header">
+                        <div class="service-icon-large">🚨</div>
+                        <h3>Incident Response</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Respuesta rápida y efectiva a incidentes de seguridad cibernética</p>
+                        <div class="price">Desde $3,000</div>
+                    </div>
+                </div>
+
+                <div class="service-card-detailed" onclick="openModal('intelligence')">
+                    <div class="card-header">
+                        <div class="service-icon-large">🔍</div>
+                        <h3>Cyber Intelligence</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Inteligencia cibernética y análisis de amenazas avanzado</p>
+                        <div class="price">Desde $5,000</div>
+                    </div>
+                </div>
+
+                <div class="service-card-detailed" onclick="openModal('bugbounty')">
+                    <div class="card-header">
+                        <div class="service-icon-large">🐛</div>
+                        <h3>Bug Bounty Reports</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Reportes detallados de vulnerabilidades encontradas y recomendaciones</p>
+                        <div class="price">Desde $1,000</div>
+                    </div>
+                </div>
+
+                <div class="service-card-detailed" onclick="openModal('training')">
+                    <div class="card-header">
+                        <div class="service-icon-large">🎓</div>
+                        <h3>Cybersecurity Training</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Capacitación profesional en hacking ético y defensa cibernética</p>
+                        <div class="price">Desde $800</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modales de Servicios -->
+    <div id="penetrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('penetration')">&times;</span>
+            <div class="modal-header">
+                <div class="service-icon-large">🔒</div>
+                <h2>Penetration Testing</h2>
+            </div>
+            <div class="modal-body">
+                <div class="service-details">
+                    <div class="detail-item">
+                        <strong>Precio:</strong> $2,000 - $25,000
+                    </div>
+                    <div class="detail-item">
+                        <strong>Duración:</strong> 1-4 semanas
+                    </div>
+                    <div class="detail-item">
+                        <strong>Características:</strong>
+                        <ul>
+                            <li>Análisis de vulnerabilidades</li>
+                            <li>Pruebas de penetración web</li>
+                            <li>Pruebas de red</li>
+                            <li>Reporte detallado con recomendaciones</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Términos:</strong> Contrato de confidencialidad incluido
+                    </div>
+                </div>
+                <button class="contact-btn" onclick="contactService('Penetration Testing')">CONTACTAR</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="malwareModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('malware')">&times;</span>
+            <div class="modal-header">
+                <div class="service-icon-large">🦠</div>
+                <h2>Malware Analysis</h2>
+            </div>
+            <div class="modal-body">
+                <div class="service-details">
+                    <div class="detail-item">
+                        <strong>Precio:</strong> $1,500 - $15,000
+                    </div>
+                    <div class="detail-item">
+                        <strong>Duración:</strong> 3-10 días
+                    </div>
+                    <div class="detail-item">
+                        <strong>Características:</strong>
+                        <ul>
+                            <li>Análisis estático y dinámico</li>
+                            <li>Reverse engineering</li>
+                            <li>Detección de IOCs</li>
+                            <li>Reporte de amenazas</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Términos:</strong> Análisis confidencial y seguro
+                    </div>
+                </div>
+                <button class="contact-btn" onclick="contactService('Malware Analysis')">CONTACTAR</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="incidentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('incident')">&times;</span>
+            <div class="modal-header">
+                <div class="service-icon-large">🚨</div>
+                <h2>Incident Response</h2>
+            </div>
+            <div class="modal-body">
+                <div class="service-details">
+                    <div class="detail-item">
+                        <strong>Precio:</strong> $3,000 - $20,000
+                    </div>
+                    <div class="detail-item">
+                        <strong>Duración:</strong> 24-72 horas (emergencia)
+                    </div>
+                    <div class="detail-item">
+                        <strong>Características:</strong>
+                        <ul>
+                            <li>Respuesta inmediata 24/7</li>
+                            <li>Contención de amenazas</li>
+                            <li>Análisis forense</li>
+                            <li>Recuperación de sistemas</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Términos:</strong> Servicio de emergencia disponible
+                    </div>
+                </div>
+                <button class="contact-btn" onclick="contactService('Incident Response')">CONTACTAR</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="intelligenceModal" class="modal">
+    <div id="bugbountyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bugbounty')">&times;</span>
+            <div class="modal-header">
+                <div class="service-icon-large">🐛</div>
+                <h2>Bug Bounty Reports</h2>
+            </div>
+            <div class="modal-body">
+                <div class="service-details">
+                    <div class="detail-item">
+                        <strong>Precio:</strong> $1,000 - $10,000
+                    </div>
+                    <div class="detail-item">
+                        <strong>Duración:</strong> 1-2 semanas
+                    </div>
+                    <div class="detail-item">
+                        <strong>Características:</strong>
+                        <ul>
+                            <li>Identificación de vulnerabilidades</li>
+                            <li>Reporte técnico y ejecutivo</li>
+                            <li>Recomendaciones de remediación</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Términos:</strong> Confidencialidad garantizada
+                    </div>
+                </div>
+                <button class="contact-btn" onclick="contactService('Bug Bounty Reports')">CONTACTAR</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="trainingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('training')">&times;</span>
+            <div class="modal-header">
+                <div class="service-icon-large">🎓</div>
+                <h2>Cybersecurity Training</h2>
+            </div>
+            <div class="modal-body">
+                <div class="service-details">
+                    <div class="detail-item">
+                        <strong>Precio:</strong> $800 - $5,000
+                    </div>
+                    <div class="detail-item">
+                        <strong>Duración:</strong> 1-4 días
+                    </div>
+                    <div class="detail-item">
+                        <strong>Características:</strong>
+                        <ul>
+                            <li>Formación en hacking ético</li>
+                            <li>Defensa cibernética</li>
+                            <li>Laboratorios prácticos</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Términos:</strong> Certificado de participación
+                    </div>
+                </div>
+                <button class="contact-btn" onclick="contactService('Cybersecurity Training')">CONTACTAR</button>
+            </div>
+        </div>
+    </div>
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('intelligence')">&times;</span>
+            <div class="modal-header">
+                <div class="service-icon-large">🔍</div>
+                <h2>Cyber Intelligence</h2>
+            </div>
+            <div class="modal-body">
+                <div class="service-details">
+                    <div class="detail-item">
+                        <strong>Precio:</strong> $5,000 - $25,000
+                    </div>
+                    <div class="detail-item">
+                        <strong>Duración:</strong> 2-6 semanas
+                    </div>
+                    <div class="detail-item">
+                        <strong>Características:</strong>
+                        <ul>
+                            <li>Análisis de amenazas</li>
+                            <li>Inteligencia de fuentes abiertas</li>
+                            <li>Monitoreo de dark web</li>
+                            <li>Reportes de inteligencia</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Términos:</strong> Información clasificada y confidencial
+                    </div>
+                </div>
+                <button class="contact-btn" onclick="contactService('Cyber Intelligence')">CONTACTAR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <div class="chatbot-toggle" onclick="toggleChatbot()">
+            <div class="chat-icon">💬</div>
+        </div>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <h3>HackerBot</h3>
+                <button class="close-chat" onclick="toggleChatbot()">&times;</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="bot-message">
+                    <p>¡Hola! Soy HackerBot. ¿En qué puedo ayudarte con nuestros servicios de cybersecurity?</p>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatInput" placeholder="Escribe tu pregunta...">
+                <button onclick="sendMessage()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección Acerca -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">ACERCA DE MÍ</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>ANGEL_TERAN - Ethical Hacker</h3>
+                    <p>Soy un Ethical Hacker especializado en cybersecurity con más de 5 años de experiencia en el campo. Mi enfoque se centra en ayudar a las organizaciones a fortalecer su postura de seguridad a través de servicios profesionales y éticos.</p>
+                    <p>Especializado en Penetration Testing, Análisis de Malware, Respuesta a Incidentes e Inteligencia Cibernética, trabajo con metodologías reconocidas internacionalmente para garantizar la máxima seguridad de tus sistemas.</p>
+                    <div class="skills">
+                        <h4>Habilidades Técnicas:</h4>
+                        <ul>
+                            <li>Penetration Testing (OWASP, NIST)</li>
+                            <li>Malware Analysis & Reverse Engineering</li>
+                            <li>Incident Response & Forensics</li>
+                            <li>Cyber Threat Intelligence</li>
+                            <li>Bug Bounty & Vulnerability Assessment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">CONTACTO</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>¿Listo para Fortalecer tu Seguridad?</h3>
+                    <p>Contacta conmigo para discutir cómo puedo ayudar a proteger tu organización contra amenazas cibernéticas.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <strong>Email:</strong> angel.teran@ethicalhacker.com
+                        </div>
+                        <div class="contact-item">
+                            <strong>Teléfono:</strong> +1-555-ETHICAL
+                        </div>
+                        <div class="contact-item">
+                            <strong>LinkedIn:</strong> linkedin.com/in/angel-teran-ethical-hacker
+                        </div>
+                        <div class="contact-item">
+                            <strong>GitHub:</strong> github.com/angel-teran-ethical
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h4>Envíame un Mensaje</h4>
+                    <form>
+                        <input type="text" placeholder="Tu Nombre" required>
+                        <input type="email" placeholder="Tu Email" required>
+                        <select required>
+                            <option value="">Selecciona un Servicio</option>
+                            <option value="penetration">Penetration Testing</option>
+                            <option value="malware">Malware Analysis</option>
+                            <option value="incident">Incident Response</option>
+                            <option value="intelligence">Cyber Intelligence</option>
+                        </select>
+                        <textarea placeholder="Describe tu proyecto o consulta" rows="4" required></textarea>
+                        <button type="submit">ENVIAR MENSAJE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 ANGEL_TERAN - Ethical Hacker. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
